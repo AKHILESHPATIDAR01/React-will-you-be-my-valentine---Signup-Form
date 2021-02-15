@@ -45,46 +45,58 @@ const App = () => {
     if(!name.match(lettersName)){
         // alert('Your name have accepted : you can try another');
         setErrorName("Only alphanumeric allowed");
-        return true;
+        setErrorMsg("All Field are mendatory");
+        // return true;
     }
-    else{
-        setErrorName("");
-    }
+    // else{
+    //     setErrorName("");
+    // }
 
     // email
-    if(!email.includes('@')){
+    else if(!email.includes('@')){
       // alert('INVALID');
       setErrorEmail("Email must contain @");
+      setErrorMsg("All Field are mendatory");
     }
-    else{
-      setErrorEmail("");
-    }
+    // else{
+    //   setErrorEmail("");
+    // }
 
     // phonep No
 
-    if(!phoneNo.match(lettersNumber) || phoneNo.length==10){
+    else if(!phoneNo.match(lettersNumber) || phoneNo.length==10){
       // alert('INVALID');
       setErrorPhoneNo("Phone Number must contain only numbers");
+      setErrorMsg("All Field are mendatory");
     }
-    else{
-      setErrorPhoneNo("");
-    }
+    // else{
+    //   setErrorPhoneNo("");
+    // }
 
     // password
-    if(password.length <=6){
-      setErrorPassword("Password must contain atleast 6 letters");
+    else if(password.length <= 6){
+      // if(password.length <= 6){
+        setErrorPassword("Password must contain atleast 6 letters");
+        setErrorMsg("All Field are mendatory");
+      // }
+      // else{
+      //   setErrorPassword("");
+      // }
+      
     }
-    else{
-      setErrorPassword("");
-    }
+    // else{
+    //   setErrorPassword("");
+    // }
 
 
     // gender
-    if(gender==""){
+    else if(gender==""){
       setErrorGender("Please identify as male, female or others");
+      setErrorMsg("All Field are mendatory");
     }
     else{
-      setErrorGender("");
+      // setErrorGender("");
+      setErrorMsg("no");
     }
 
     // else
@@ -144,7 +156,20 @@ const App = () => {
 
         </Form>
         </Container>
-    </div>
+    
+
+    {
+
+      errorMsg==="no" ?
+        <div>
+          <h1>Welcome {name} </h1>
+        </div>
+      : null
+
+
+    }
+
+  </div>
   )
 }
 
