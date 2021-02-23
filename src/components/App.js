@@ -135,19 +135,19 @@ const App = () => {
 
           <div>HELLO PLEASE FILL THE FORM</div>
         <Form>
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label>Name</Form.Label>
             <Form.Control value={name} name="name" data-testid = 'name' type="text" onChange={handleInputChange} placeholder="Enter Your Name" />
             <p className="text-danger">{errorName}</p>
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label>Email</Form.Label>
             <Form.Control value={email} name="email" data-testid = 'email' type="text" onChange={handleInputChange} placeholder="Enter Your Email address" />
             <p className="text-danger">{errorEmail}</p>
           </Form.Group>
 
-          <Form.Group controlId="formGridState">
+          <Form.Group>
             <Form.Label>Gender</Form.Label>
             <Form.Control value={gender} name="gender" data-testid = 'gender' as="select" onChange={handleInputChange} >
               {/* <option>Choose...</option> */}
@@ -158,13 +158,13 @@ const App = () => {
             <p className="text-danger">{errorGender}</p>
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group >
             <Form.Label>Phone Number</Form.Label>
             <Form.Control value={phoneNo} name="phoneNo" data-testid = 'phoneNumber' type="text" onChange={handleInputChange} placeholder="Enter Your Phone Number" />
             <p className="text-danger">{errorPhoneNo}</p>
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group >
             <Form.Label>Password</Form.Label>
             <Form.Control value={password} name="password" data-testid = 'password' type="password" onChange={handleInputChange} placeholder="Enter Password" />
             <p className="text-danger">{errorPassword}</p>
