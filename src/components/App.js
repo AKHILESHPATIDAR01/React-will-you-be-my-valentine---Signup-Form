@@ -13,26 +13,44 @@ const App = () => {
 
   const [name , setName] = React.useState("");
   const [email , setEmail] = React.useState("");
-  const [gender , setGender] = React.useState("");
+  const [gender , setGender] = React.useState("Male");
   const [password , setPassword] = React.useState("");
   const [phoneNo , setPhoneNo] = React.useState("");
 
-  const handleInputChangeName =(event)=>{
-    setName(event.target.value);
+  const handleInputChange =(event)=>{
+    var x = event.target.name;
+    if(x == 'name'){
+      console.log("aaa")
+      setName(event.target.value);
+    }
+    if(x == 'email'){
+      setEmail(event.target.value);
+    }
+    if(x == 'gender'){
+      setGender(event.target.value);
+    }
+    if(x == 'phoneNo'){
+      setPhoneNo(event.target.value);
+    }
+    if(x == 'password'){
+      setPassword(event.target.value);
+    }
+
+    // setName(event.target.value);
   }
-  const handleInputChangeEmail =(event)=>{
-    setEmail(event.target.value);
-  }
-  const handleInputChangeGender =(event)=>{
-    setGender(event.target.value);
+  // const handleInputChangeEmail =(event)=>{
+  //   setEmail(event.target.value);
+  // }
+  // const handleInputChangeGender =(event)=>{
+  //   setGender(event.target.value);
     
-  }
-  const handleInputChangePassword =(event)=>{
-    setPassword(event.target.value);
-  }
-  const handleInputChangePhoneNo =(event)=>{
-    setPhoneNo(event.target.value);
-  }
+  // }
+  // const handleInputChangePassword =(event)=>{
+  //   setPassword(event.target.value);
+  // }
+  // const handleInputChangePhoneNo =(event)=>{
+  //   setPhoneNo(event.target.value);
+  // }
 
 
   const handleClick = () =>{
@@ -112,41 +130,43 @@ const App = () => {
     <div id="main">
 
         {/* <Button className="success">Success</Button> */}
-
+       
         <Container>
+
+          <div>HELLO PLEASE FILL THE FORM</div>
         <Form>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Name</Form.Label>
-            <Form.Control value={name} data-testid = 'name' type="text" onChange={handleInputChangeName} placeholder="Enter Your Name" />
+            <Form.Control value={name} name="name" data-testid = 'name' type="text" onChange={handleInputChange} placeholder="Enter Your Name" />
             <p className="text-danger">{errorName}</p>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
-            <Form.Control value={email} data-testid = 'email' type="text" onChange={handleInputChangeEmail} placeholder="Enter Your Email address" />
+            <Form.Control value={email} name="email" data-testid = 'email' type="text" onChange={handleInputChange} placeholder="Enter Your Email address" />
             <p className="text-danger">{errorEmail}</p>
           </Form.Group>
 
           <Form.Group controlId="formGridState">
             <Form.Label>Gender</Form.Label>
-            <Form.Control value={gender} data-testid = 'gender' as="select" onChange={handleInputChangeGender} defaultValue="Choose...">
-              <option>Choose...</option>
-              <option>Male</option>
-              <option>Female</option>
-              <option>Other</option>
+            <Form.Control value={gender} name="gender" data-testid = 'gender' as="select" onChange={handleInputChange} >
+              {/* <option>Choose...</option> */}
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
             </Form.Control>
             <p className="text-danger">{errorGender}</p>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Phone Number</Form.Label>
-            <Form.Control value={phoneNo} data-testid = 'phoneNumber' type="text" onChange={handleInputChangePhoneNo} placeholder="Enter Your Phone Number" />
+            <Form.Control value={phoneNo} name="phoneNo" data-testid = 'phoneNumber' type="text" onChange={handleInputChange} placeholder="Enter Your Phone Number" />
             <p className="text-danger">{errorPhoneNo}</p>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Password</Form.Label>
-            <Form.Control value={password} data-testid = 'password' type="password" onChange={handleInputChangePassword} placeholder="Enter Password" />
+            <Form.Control value={password} name="password" data-testid = 'password' type="password" onChange={handleInputChange} placeholder="Enter Password" />
             <p className="text-danger">{errorPassword}</p>
           </Form.Group>
 
