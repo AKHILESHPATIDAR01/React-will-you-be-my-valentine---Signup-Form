@@ -1,6 +1,6 @@
 import React, {Component, useState} from "react";
-import { Button, Container, Form } from "react-bootstrap";
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import { Button, Container, Form } from "react-bootstrap";
+// import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../styles/App.css';
 
 const App = () => {
