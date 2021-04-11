@@ -61,7 +61,7 @@ const App = () => {
     else if(!name.match(/^[0-9a-z]+$/)){
       e.preventDefault();
         // alert('Your name have accepted : you can try another');
-        setErrorName("Only alphanumeric allowed");
+        // setErrorName("Only alphanumeric allowed");
         setErrorMsg("All Field are mendatory");
     }
 
@@ -69,8 +69,8 @@ const App = () => {
     else if(!email.match(/\S+@\S+\.\S+/)){
       // alert('INVALID');
       e.preventDefault();
-      setErrorEmail("Email must contain @");
-      setErrorName("");
+      // setErrorEmail("Email must contain @");
+      // setErrorName("");
       setErrorMsg("All Field are mendatory");
     }
 
@@ -78,38 +78,38 @@ const App = () => {
 
     else if(!phoneNo.match(/^\d{10}$/)){
       // alert('INVALID');
-      setErrorPhoneNo("Phone Number must contain only numbers");
+      // setErrorPhoneNo("Phone Number must contain only numbers");
       setErrorMsg("All Field are mendatory");
-      setErrorEmail("");
-      setErrorName("");
+      // setErrorEmail("");
+      // setErrorName("");
     }
     else if(password.length<6){
         setErrorMsg("All Field are mendatory");
-        setErrorPassword("Password must contain atleast 6 letters");
-        setErrorPhoneNo("");
-        setErrorEmail("");
-        setErrorName("");     
+        // setErrorPassword("Password must contain atleast 6 letters");
+        // setErrorPhoneNo("");
+        // setErrorEmail("");
+        // setErrorName("");     
     }
     // gender
     else if(gender!='male' && gender!='female' && gender!='other'){
       console.log("I am from gender");
       setErrorGender("Please identify as male, female or others");
-      setErrorMsg("All Field are mendatory");
-      setErrorPassword("");
-        setErrorPhoneNo("");
-        setErrorEmail("");
-        setErrorName(""); 
+      // setErrorMsg("All Field are mendatory");
+      // setErrorPassword("");
+      //   setErrorPhoneNo("");
+      //   setErrorEmail("");
+      //   setErrorName(""); 
     }
     else{
       // setErrorGender("");
-      setErrorMsg("no");
-      console.log("SetErrorMsg");
-      setErrorGender("");
+      setErrorMsg("");
+      // console.log("SetErrorMsg");
+      // setErrorGender("");
       // setErrorMsg("All Field are mendatory");
-      setErrorPassword("");
-        setErrorPhoneNo("");
-        setErrorEmail("");
-        setErrorName(""); 
+      // setErrorPassword("");
+      //   setErrorPhoneNo("");
+      //   setErrorEmail("");
+      //   setErrorName(""); 
     }
 
 
