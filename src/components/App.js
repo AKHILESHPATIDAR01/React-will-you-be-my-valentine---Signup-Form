@@ -1,4 +1,4 @@
-import React, {Component, useState} from "react";
+import React, {Component, useEffect, useState} from "react";
 // import { Button, Container, Form } from "react-bootstrap";
 // import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../styles/App.css';
@@ -17,6 +17,15 @@ const App = () => {
   const [gender , setGender] = React.useState("male");
   const [password , setPassword] = React.useState("");
   const [phoneNo , setPhoneNo] = React.useState("");
+
+
+  const isAlphaNumeric=(str)=>{ 
+    var val = str; 
+    var RegEx = /^[a-z0-9]+$/i; 
+    var Valid = RegEx.test(val); 
+    return Valid 
+}
+
 
   const handleInputChange =(event)=>{
     var x = event.target.name;
@@ -40,20 +49,26 @@ const App = () => {
   }
 
 
-    const handleClick = (e) =>{
+  const handleClick = (e) =>{
     
     var lettersName = /^[A-Za-z]+$/;
     var lettersNumber = /^[0-9\b]+$/;
-
-    if(name.length==0){
+    if(!name || !email || !gender || !phoneNo || !password){
+      e.preventDefault();
+      setErrorMsg("All fields are mandatory");
+      return;
+    }
+    else if(!name.match(/^[0-9a-z]+$/)){
+      e.preventDefault();
         // alert('Your name have accepted : you can try another');
         setErrorName("Only alphanumeric allowed");
         setErrorMsg("All Field are mendatory");
     }
 
     // email
-    else if(!email.includes('@')){
+    else if(!email.match(/\S+@\S+\.\S+/)){
       // alert('INVALID');
+      e.preventDefault();
       setErrorEmail("Email must contain @");
       setErrorName("");
       setErrorMsg("All Field are mendatory");
@@ -61,14 +76,14 @@ const App = () => {
 
     // phonep No
 
-    else if(!phoneNo.match(lettersNumber) || phoneNo.length!=10){
+    else if(!phoneNo.match(/^\d{10}$/)){
       // alert('INVALID');
       setErrorPhoneNo("Phone Number must contain only numbers");
       setErrorMsg("All Field are mendatory");
       setErrorEmail("");
       setErrorName("");
     }
-    else if(password.length <= 6){
+    else if(password.length<6){
         setErrorMsg("All Field are mendatory");
         setErrorPassword("Password must contain atleast 6 letters");
         setErrorPhoneNo("");
@@ -87,9 +102,10 @@ const App = () => {
     }
     else{
       // setErrorGender("");
-      setErrorMsg("");
+      setErrorMsg("no");
       console.log("SetErrorMsg");
       setErrorGender("");
+      // setErrorMsg("All Field are mendatory");
       setErrorPassword("");
         setErrorPhoneNo("");
         setErrorEmail("");
@@ -98,22 +114,17 @@ const App = () => {
 
 
   }
-    
-    useEffect(()=>{
-    setErrorMsg("");
-  },[])
 
 
   return (
     <div id="main">
 
       <div className='container'>
-      <form>
+        <form>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input name='name' value={name} type="text" className="form-control" data-testid='name' id='name' onChange={handleInputChange} placeholder="Enter Your Name" />
             <p className="text-danger">{errorName}</p>
-            
           </div>
 
           <div className="form-group">
@@ -145,12 +156,11 @@ const App = () => {
           </div>
 
           <button type='button' onClick={handleClick} data-testid = 'submit' className="btn btn-primary">Submit</button>
-        </form>
+      </form>
       </div>
 
       {
-
-        errorMsg==="" ?
+        errorMsg==="no" ?
           <div>
             <h1>Welcome {name} </h1>
           </div>
