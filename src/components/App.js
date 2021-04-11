@@ -98,6 +98,11 @@ const App = () => {
 
 
   }
+    
+    useEffect(()=>{
+    setErrorMsg("");
+  },[])
+
 
   return (
     <div id="main">
