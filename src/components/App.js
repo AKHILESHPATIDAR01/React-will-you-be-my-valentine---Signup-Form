@@ -49,10 +49,8 @@ const App = () => {
   }
 
 
-  const handleClick = (e) =>{
-    
-    var lettersName = /^[A-Za-z]+$/;
-    var lettersNumber = /^[0-9\b]+$/;
+  const handleClick=(e)=>{
+    console.log("Clicked");
     if(!name || !email || !gender || !phoneNo || !password){
       e.preventDefault();
       setErrorMsg("All fields are mandatory");
@@ -60,59 +58,29 @@ const App = () => {
     }
     else if(!name.match(/^[0-9a-z]+$/)){
       e.preventDefault();
-        // alert('Your name have accepted : you can try another');
-        // setErrorName("Only alphanumeric allowed");
-        setErrorMsg("All Field are mendatory");
+      setErrorMsg("Name is not alphanumeric");
+      return;
     }
-
-    // email
     else if(!email.match(/\S+@\S+\.\S+/)){
-      // alert('INVALID');
       e.preventDefault();
-      // setErrorEmail("Email must contain @");
-      // setErrorName("");
-      setErrorMsg("All Field are mendatory");
+      setErrorMsg("Email must contain @")
+      return;
     }
-
-    // phonep No
-
-    else if(!phoneNo.match(/^\d{10}$/)){
-      // alert('INVALID');
-      // setErrorPhoneNo("Phone Number must contain only numbers");
-      setErrorMsg("All Field are mendatory");
-      // setErrorEmail("");
-      // setErrorName("");
+    else if(!phone.match(/^\d{10}$/)){
+      e.preventDefault();
+      setErrorMsg("Phone Number must contain only numbers");
+      return;
     }
     else if(password.length<6){
-        setErrorMsg("All Field are mendatory");
-        // setErrorPassword("Password must contain atleast 6 letters");
-        // setErrorPhoneNo("");
-        // setErrorEmail("");
-        // setErrorName("");     
-    }
-    // gender
-    else if(gender!='male' && gender!='female' && gender!='other'){
-      console.log("I am from gender");
-      setErrorGender("Please identify as male, female or others");
-      // setErrorMsg("All Field are mendatory");
-      // setErrorPassword("");
-      //   setErrorPhoneNo("");
-      //   setErrorEmail("");
-      //   setErrorName(""); 
+      e.preventDefault();
+      setErrorMsg("Password must contain atleast 6 letters");
+      return;
     }
     else{
-      // setErrorGender("");
-      setErrorMsg("");
-      // console.log("SetErrorMsg");
-      // setErrorGender("");
-      // setErrorMsg("All Field are mendatory");
-      // setErrorPassword("");
-      //   setErrorPhoneNo("");
-      //   setErrorEmail("");
-      //   setErrorName(""); 
+      e.preventDefault();
+      var displayName = email.substring(0, email.lastIndexOf("@"));
+      setErrorMsg("Hello "+displayName);
     }
-
-
   }
 
 
