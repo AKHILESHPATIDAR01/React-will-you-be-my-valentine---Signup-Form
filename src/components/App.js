@@ -90,7 +90,6 @@ const App = () => {
       setErrorMsg("no");
       console.log("SetErrorMsg");
       setErrorGender("");
-      setErrorMsg("All Field are mendatory");
       setErrorPassword("");
         setErrorPhoneNo("");
         setErrorEmail("");
