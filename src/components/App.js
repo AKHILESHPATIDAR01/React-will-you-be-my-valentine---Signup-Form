@@ -87,7 +87,7 @@ const App = () => {
     }
     else{
       // setErrorGender("");
-      setErrorMsg("no");
+      setErrorMsg("");
       console.log("SetErrorMsg");
       setErrorGender("");
       setErrorPassword("");
@@ -145,7 +145,7 @@ const App = () => {
 
       {
 
-        errorMsg==="no" ?
+        errorMsg==="" ?
           <div>
             <h1>Welcome {name} </h1>
           </div>
